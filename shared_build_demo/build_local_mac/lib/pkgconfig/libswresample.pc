@@ -1,0 +1,14 @@
+prefix=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac
+exec_prefix=${prefix}
+libdir=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac/lib
+includedir=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac/include
+
+Name: libswresample
+Description: FFmpeg audio resampling library
+Version: 4.8.100
+Requires: 
+Requires.private: libavutil >= 57.32.101
+Conflicts:
+Libs: -L${libdir}  -lswresample 
+Libs.private: -lm
+Cflags: -I${includedir}

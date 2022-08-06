@@ -1,0 +1,14 @@
+prefix=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac
+exec_prefix=${prefix}
+libdir=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac/lib
+includedir=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac/include
+
+Name: libavutil
+Description: FFmpeg utility library
+Version: 57.32.101
+Requires: 
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavutil 
+Libs.private: -pthread -lm -framework VideoToolbox -L/usr/local/Cellar/libx11/1.7.2/lib -lX11 -framework CoreFoundation -framework CoreMedia -framework CoreVideo -framework CoreServices
+Cflags: -I${includedir}
