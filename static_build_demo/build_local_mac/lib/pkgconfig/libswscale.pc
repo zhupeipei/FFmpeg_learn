@@ -1,0 +1,14 @@
+prefix=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac
+exec_prefix=${prefix}
+libdir=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac/lib
+includedir=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac/include
+
+Name: libswscale
+Description: FFmpeg image rescaling library
+Version: 6.8.101
+Requires: libavutil >= 57.32.101
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lswscale -lm
+Libs.private: 
+Cflags: -I${includedir}

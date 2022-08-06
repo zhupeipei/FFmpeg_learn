@@ -1,2 +1,6 @@
 # FFmpeg_learn
 FFmpeg_learn
+
+static_build_demo目录为，引入ffmpeg静态库，编译成功的测试demo
+
+shared_build_demo目录为，引入ffmpeg动态库，编译成功的测试demo

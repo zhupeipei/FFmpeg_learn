@@ -1,0 +1,14 @@
+prefix=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac
+exec_prefix=${prefix}
+libdir=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac/lib
+includedir=/Users/xmly/audio_video/FFmpeg_compile_local_mac/build_local_mac/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 59.29.100
+Requires: libavcodec >= 59.41.101, libswresample >= 4.8.100, libavutil >= 57.32.101
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavformat -lm -lbz2 -lz -Wl,-framework,CoreFoundation -Wl,-framework,Security
+Libs.private: 
+Cflags: -I${includedir}
