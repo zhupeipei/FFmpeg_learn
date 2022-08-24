@@ -55,7 +55,6 @@ int sfp_refresh_thread(void *opaque) {
 
 int main() {
     std::cout << "Hello, MyPlayer" << std::endl;
-    std::cout << "SFM_REFRESH_EVENT: " << SFM_REFRESH_EVENT << std::endl;
 
     int ret = 0;
 
@@ -121,6 +120,8 @@ int main() {
     }
 
     dstPixelFormat = avCodecContext->pix_fmt; // AV_PIX_FMT_YUV420P
+    std::cout << "as: " << avCodecContext->pix_fmt << ", " << AV_PIX_FMT_YUV420P << ", " << AV_PIX_FMT_YUYV422
+              << std::endl;
     swsContext = sws_getContext(avCodecContext->width, avCodecContext->height,
                                 avCodecContext->pix_fmt,
                                 avCodecContext->width, avCodecContext->height,
@@ -183,28 +184,21 @@ int main() {
     while (true) {
         int temp_ret = 0;
         int wait_ret = SDL_WaitEvent(&sdlEvent);
-        std::cout << "wait_ret: " << wait_ret << ", " << sdlEvent.type << std::endl;
         if (sdlEvent.type == SFM_REFRESH_EVENT) {
-            std::cout << "SFM_REFRESH_EVENT" << std::endl;
             while (true) {
-                std::cout << "here 1" << std::endl;
                 if (av_read_frame(avFormatContext, avPacket) < 0) {
-                    std::cout << "here 2" << std::endl;
                     g_sfp_refresh_thread_exit = 1;
                     break;
                 }
                 if (avPacket->stream_index == video_index) {
-                    std::cout << "here 3" << std::endl;
                     break;
                 }
             }
-            std::cout << "here 4" << std::endl;
             if (avcodec_send_packet(avCodecContext, avPacket)) {
                 g_sfp_refresh_thread_exit = 1;
             }
             do {
                 temp_ret = avcodec_receive_frame(avCodecContext, pFrame);
-                std::cout << "temp_ret: " << temp_ret << std::endl;
                 if (temp_ret == AVERROR_EOF) {
                     g_sfp_refresh_thread_exit = 1;
                     break;
@@ -232,7 +226,6 @@ int main() {
             std::cout << "SFM_BREAK_EVENT" << std::endl;
             break;
         }
-        std::cout << "while end" << std::endl;
     }
 
     end:
