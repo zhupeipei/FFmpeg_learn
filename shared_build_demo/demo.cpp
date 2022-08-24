@@ -325,5 +325,5 @@ int vPlayer_sdl2(char* filePath)
 }
 
 int main() {
-    vPlayer_sdl2((char*)"/Users/xmly/audio_video/FFmpeg_Clion_Project/source/test.mp4");
+    vPlayer_sdl2((char*)"/Users/xmly/audio_video/FFmpeg_learn/source/test.mp4");
 }
