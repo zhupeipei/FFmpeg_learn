@@ -218,7 +218,7 @@ int main() {
         } else if (sdlEvent.type == SDL_KEYDOWN) {
             std::cout << "SDL_KEYDOWN" << std::endl;
             if (sdlEvent.key.keysym.sym == SDLK_SPACE) {
-                g_sfp_refresh_thread_pause = 1;
+                g_sfp_refresh_thread_pause = !g_sfp_refresh_thread_pause;
             } else if (sdlEvent.key.keysym.sym == SDLK_q) {
                 g_sfp_refresh_thread_exit = 1;
             }
