@@ -47,3 +47,21 @@ Java_com_aire_jnilearn_NdkHelper_trigger(JNIEnv *env, jobject thiz, jstring msg)
 //    int* data = nullptr;
 //    LOGV("%d \n", data[0]);
 }
+
+JNIEXPORT jint JNICALL
+JNI_OnLoad(JavaVM* vm, void* reserved) {
+    JNIEnv *env = NULL;
+    jint result = -1;
+
+    LOGV("hello jni onLoad, %d", 123);
+
+    // 获取JNI env变量
+    if (vm->GetEnv((void**) &env, JNI_VERSION_1_6) != JNI_OK) {
+        // 失败返回-1
+        return result;
+    }
+
+    // 返回成功
+    result = JNI_VERSION_1_6;
+    return result;
+}
