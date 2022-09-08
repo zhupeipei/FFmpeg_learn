@@ -14,10 +14,9 @@ extern "C" {
 
 #define LOGV(FMT, ...) __android_log_print(ANDROID_LOG_VERBOSE, "nativeLog", FMT, __VA_ARGS__)
 
-extern "C" JNIEXPORT jstring JNICALL
-Java_com_aire_ffmpegLearn_MainActivity_stringFromJNI(
-        JNIEnv *env,
-        jobject /* this */) {
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_aire_ffmpegLearn_NdkHelper_ffmpegVersion(JNIEnv *env, jobject thiz) {
     std::string hello = "Hello from C++";
     LOGV("FFMPEG VERSION: %s", FFMPEG_VERSION);
     LOGV("AVCODEC VERSION: %d", avcodec_version());
