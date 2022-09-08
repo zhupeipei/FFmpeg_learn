@@ -24,10 +24,11 @@
             android:background="@color/black" />
 
         <TextView
+            android:id="@+id/playAudio"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="音频录音" />
+            android:text="播放音频" />
 
         <View
             android:layout_width="match_parent"

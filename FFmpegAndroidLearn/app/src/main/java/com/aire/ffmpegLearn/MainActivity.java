@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.aire.ffmpegLearn.child.SimpleAudioPlayerActivity;
 import com.aire.ffmpegLearn.child.SimpleRecordActivity;
 import com.aire.ffmpegLearn.databinding.ActivityMainBinding;
 
@@ -21,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
         binding.recordTv.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, SimpleRecordActivity.class));
+        });
+
+        binding.playAudio.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SimpleAudioPlayerActivity.class));
         });
     }
 }

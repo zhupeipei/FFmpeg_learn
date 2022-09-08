@@ -24,7 +24,9 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        native-lib.cpp)
+        native-lib.cpp
+        simple_audio_player.cpp
+        )
 
 add_library(ffmpeg SHARED IMPORTED)
 set_target_properties(ffmpeg
