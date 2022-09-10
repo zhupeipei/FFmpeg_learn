@@ -54,7 +54,8 @@ public class SimpleAudioPlayerActivity extends AppCompatActivity {
                         return;
                     }
                     File folder = new File(Environment.getExternalStorageDirectory(), "/sdcard/test");
-                    String filePath = new File(folder, "audio_record.wav").getAbsolutePath();
+                    String filePath = new File(folder, "audio.m4a").getAbsolutePath();
+//                    String filePath = new File(folder, "audio_record.wav").getAbsolutePath();
                     new SimpleAudioPlayer().playAudio(filePath);
                 }
             });

@@ -10,3 +10,4 @@
 #include "android/log.h"
 
 #define LOGI(TAG, FMT, ...) __android_log_print(ANDROID_LOG_INFO, TAG, FMT, __VA_ARGS__)
+#define LOGE(TAG, FMT, ...) __android_log_print(ANDROID_LOG_ERROR, TAG, FMT, __VA_ARGS__)
