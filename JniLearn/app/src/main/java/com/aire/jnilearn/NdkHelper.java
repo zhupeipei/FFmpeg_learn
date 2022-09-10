@@ -29,4 +29,8 @@ public class NdkHelper {
     }
 
     public native void trigger(String msg);
+
+    public native void modifyArr(int[] arr);
+
+    public native void modifyString(String value);
 }

@@ -48,15 +48,31 @@ Java_com_aire_jnilearn_NdkHelper_trigger(JNIEnv *env, jobject thiz, jstring msg)
 //    LOGV("%d \n", data[0]);
 }
 
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_aire_jnilearn_NdkHelper_modifyArr(JNIEnv *env, jobject thiz, jintArray arr) {
+    int *arrData = static_cast<int *>(env->GetPrimitiveArrayCritical(arr, JNI_FALSE));
+    arrData[1] = 3;
+    env->ReleasePrimitiveArrayCritical(arr, arrData, 0);
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_aire_jnilearn_NdkHelper_modifyString(JNIEnv *env, jobject thiz, jstring value) {
+    jchar *chars = const_cast<jchar *>(env->GetStringCritical(value, nullptr));
+    chars[2] = 'a';
+    env->ReleaseStringCritical(value, chars);
+}
+
 JNIEXPORT jint JNICALL
-JNI_OnLoad(JavaVM* vm, void* reserved) {
+JNI_OnLoad(JavaVM *vm, void *reserved) {
     JNIEnv *env = NULL;
     jint result = -1;
 
     LOGV("hello jni onLoad, %d", 123);
 
     // 获取JNI env变量
-    if (vm->GetEnv((void**) &env, JNI_VERSION_1_6) != JNI_OK) {
+    if (vm->GetEnv((void **) &env, JNI_VERSION_1_6) != JNI_OK) {
         // 失败返回-1
         return result;
     }
